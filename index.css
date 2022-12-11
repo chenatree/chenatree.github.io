@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #f9f0f3;
+}
+
+button {
+    border: 0;
+}
+
+input {
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../river.png) no-repeat;
+    height: 100vh;
+    background-size: cover;
+}
+
+.login {
+    width: 350px;
+    height: 380px;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.login a {
+    position: absolute;
+    right: 55px;
+    top: 190px;
+}
+
+.login .title {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+form div {
+    flex: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form .iNo {
+    margin-top: 30px;
+}
+
+form .iNo input {
+    width: 180px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+form .iNo label {
+    margin-right: 10px;
+}
+
+form .iPsw {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+form .iPsw input {
+    width: 180px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+form .iPsw label {
+    margin-right: 10px;
+}
+
+.moreBtn {
+    margin-top: 20px;
+}
+
+.moreBtn .login-btn {
+    width: 100px;
+    height: 25px;
+    margin-right: 45px;
+    border-radius: 22px;
+    background-color: #974939;
+}
+
+.moreBtn .register-btn {
+    width: 100px;
+    height: 25px;
+    border-radius: 22px;
+    background-color: #974939;
+}
