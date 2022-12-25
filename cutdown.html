@@ -86,6 +86,7 @@
         }
 
         .box span:hover {
+            cursor: pointer;
             transform: scale(1.1);
         }
 
@@ -105,7 +106,7 @@
     <span class="span">新年快乐 !</span>
     <span class="span">新年快乐 !</span>
     <span class="span">新年快乐 !</span>
-    <h1>距离元旦还剩:</h1>
+    <h1>距离2023元旦还剩:</h1>
     <div class="box">
         <span class="day"></span>
         <span class="hours"></span>
@@ -113,9 +114,11 @@
         <span class="seconds"></span>
     </div>
     <script>
+        //这里复习了一下oop化简从繁了
         class cd {
             constructor(name) {
                 this.box = document.querySelector(name);
+                this.spans = this.box.querySelectorAll('span');
                 this.day = this.box.querySelector('.day');
                 this.hours = this.box.querySelector('.hours');
                 this.minutes = this.box.querySelector('.minutes');
@@ -124,6 +127,7 @@
                 setInterval(() => {
                     this.cutDwon();
                 }, 1000);
+                this.changeColor();
             }
             cutDwon() {
                 let overTime = new Date('2023-1-1 00:00:00');
@@ -142,7 +146,17 @@
                 s = s < 10 ? '0' + s : s;
                 this.seconds.innerHTML = s + '秒';
             }
-
+            changeColor() {
+                let colors = ['#9c0b1c', '#9AFF9A', '#AFEEEE', '#E6E6FA'];
+                for (let i = 0; i < this.spans.length; i++) {
+                    this.spans[i].onmouseenter = function () {
+                        document.body.style.backgroundColor = colors[i];
+                    }
+                    this.spans[i].onmouseleave = function () {
+                        document.body.style.backgroundColor = '#c55f3f';
+                    }
+                }
+            }
         }
         new cd('.box');
     </script>
