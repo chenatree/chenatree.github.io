@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #c55f3f;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: space-between;
+      height: 100vh;
+      overflow:hidden;
+    }
+    .span,
+        .span::before,
+        .span::after {
+            content: '万事如意!';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 26.6667vw;
+            height: 8vw;
+            background-color: rgba(255, 255, 255, .3);
+            text-align: center;
+            line-height: 8vw;
+            border-radius: 2.6667vw;
+            animation: move 7s linear infinite alternate;
+        }
+
+        .span::before {
+            top: 13.3333vw;
+        }
+
+        .span::after {
+            top: 26.6667vw;
+            animation-duration: 10s;
+        }
+        .span:nth-of-type(2) {
+            animation-duration: 8s;
+            top: 26.6667vw;
+        }
+
+        .span:nth-of-type(3) {
+            animation-duration: 9s;
+            top: 133.3333vw;
+        }
+    h1{
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2.6667vw;
+    }
+    .container{
+      width: 100%;
+      height: 40vw;
+      /* background-color: pink; */
+      display: flex;
+      justify-content: space-around;
+    }
+    .container span{
+      width: 23.4667vw;
+      height: 100%;
+      background-color: rgba(255, 255, 255, .3);
+      border-radius: 2.6667vw;
+      border: 1px solid #fff;
+      backdrop-filter: blur(8px);
+      text-align: center;
+      line-height: 40vw;
+      font-size: 8vw;
+    }
+    @keyframes move {
+            0% {
+                left: -26.6667vw;
+            }
+
+            100% {
+                left: 40vw;
+            }
+        }
+  </style>
+</head>
+<body>
+  <span class="span">生日快乐 !</span>
+  <span class="span">生日快乐 !</span>
+  <span class="span">生日快乐 !</span>
+  <h1>距离林霞燕生日还剩:</h1>
+    <div class="container">
+        <span class="day"></span>
+        <span class="hours"></span>
+        <span class="minutes"></span>
+        <span class="seconds"></span>
+    </div>
+    <script>
+      let day=document.querySelector('.day');
+     let hours = document.querySelector('.hours');
+      let minutes = document.querySelector('.minutes');
+      let seconds = document.querySelector('.seconds');
+      cutDwon();
+     function cutDwon() {
+          let overTime = new Date('2023-12-22 00:00:00');
+          let startTime = new Date();
+          let time = (overTime - startTime) / 1000;
+          let d = parseInt(time / 60 / 60 / 24);
+          d = d < 10 ? '0' + d : d;
+          day.innerHTML = d + '天';
+          let h = parseInt(time / 60 / 60 % 24);
+          h = h < 10 ? '0' + h : h;
+          hours.innerHTML = h + '时';
+          let m = parseInt(time / 60 % 60);
+          m = m < 10 ? '0' + m : m;
+          minutes.innerHTML = m + '分';
+          let s = parseInt(time % 60);
+          s = s < 10 ? '0' + s : s;
+          seconds.innerHTML = s + '秒';
+            }
+            
+            setInterval(() => {
+              cutDwon();
+            }, 1000);
+    </script>
+</body>
+</html>
